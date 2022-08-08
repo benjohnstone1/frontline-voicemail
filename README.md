@@ -1,4 +1,4 @@
-# frontline-voicemail
+# Frontline Voicemail
 
 ## Setup Requirements
 
@@ -10,6 +10,13 @@ Account SID: Your primary Twilio account identifier - find this in the console h
 
 cp .env.example .env
 
-Next, we need to install our dependencies from npm:
+## Clone & Deploy Twilio Function
 
-npm install
+Clone Twilio function into your environement deploy Twilio functions
+twilio:serverless:deploy
+
+## Configure Twilio Number
+
+Configure Twilio Phone number
+
+![alt Configure Number](https://github.com/benjohnstone1/frontline-voicemail/blob/main/public/Configure%20Number.png)
