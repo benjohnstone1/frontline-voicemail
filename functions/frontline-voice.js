@@ -2,7 +2,7 @@ const VoiceResponse = require("twilio/lib/twiml/VoiceResponse");
 
 exports.handler = function (context, event, callback) {
     let twiml = new VoiceResponse();
-    const conversationSid = context.CONVERSATION_SID
+    const conversationSid = context.CONVERSATION_SID;
 
     const connect = twiml.connect({
         // If call not answered record a voicemail

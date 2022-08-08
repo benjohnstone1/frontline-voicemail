@@ -3,6 +3,7 @@ const VoiceResponse = require("twilio/lib/twiml/VoiceResponse");
 exports.handler = async function (context, event, callback) {
     const accountSid = context.ACCOUNT_SID;
     const authToken = context.AUTH_TOKEN;
+    const worker = context.WORKER;
     const client = require('twilio')(accountSid, authToken);
 
     let convSid = await checkVoiceMailConversation(client);
@@ -12,14 +13,14 @@ exports.handler = async function (context, event, callback) {
         callback(null, twiml);
     } else {
         console.log('No previous VM conversation found - creating VM conversation');
-        let conversation = await createConversation(client);
+        let conversation = await createConversation(client, worker);
         let message = await sendMessage(client, conversation.sid, event);
         let twiml = sayGoodbye();
         callback(null, twiml);
     }
 };
 
-async function createConversation(client) {
+async function createConversation(client, worker) {
     let conversation = await client.conversations.v1.conversations
         .create({
             friendlyName: 'Voicemail'
@@ -27,7 +28,7 @@ async function createConversation(client) {
     let participant = await client.conversations.v1.conversations(conversation.sid)
         .participants
         .create({
-            identity: 'bjohnstone@twilio.com'
+            identity: worker
         })
     return conversation;
 }
