@@ -30,10 +30,10 @@ cp .env.example .env
 
 ```
 
-## Clone & Deploy Twilio Functions
+## Deploy Twilio Functions
 
-We will use the [twilio serverless toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) to deploy the twilio functions to your console
-Run the following command from the root folder in order to deploy to your account
+We will use the [twilio serverless toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) to deploy the twilio functions to your console.
+Run the following command from the root folder in order to deploy to your account:
 
 ```
 twilio:serverless:deploy
