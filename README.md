@@ -1,6 +1,6 @@
 # Frontline Voicemail
 
-This serverless function will allow you to add voicmail to your existing Twilio Frontline application, this assumes that you already have a Frontline instance configured, if not please see the [quickstart](https://www.twilio.com/docs/frontline/nodejs-demo-quickstart) to get started with Frontline.
+This serverless function will allow you to add voicemail to your existing Twilio Frontline application, this assumes that you already have a Frontline instance configured, if not please see the [quickstart](https://www.twilio.com/docs/frontline/nodejs-demo-quickstart) to get started with Frontline.
 
 ## Setup Requirements
 
