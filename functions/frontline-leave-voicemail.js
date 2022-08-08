@@ -49,7 +49,6 @@ async function sendMessage(client, convSid, event) {
             body: 'You have a new voicemail from: ' + event.From + '\n\n' + event.RecordingUrl,
         })
         .catch(e => console.log(e))
-        .then(message => console.log(message.media));
     return message;
 }
 
