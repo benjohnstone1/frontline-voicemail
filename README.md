@@ -1,10 +1,10 @@
 # Frontline Voicemail
 
-These serverless functions will allow you to add voicmail to your existing Twilio Frontline application, this assumes that you already have a Frontline instance configured, if not please see the [quickstart](https://www.twilio.com/docs/frontline/nodejs-demo-quickstart) to get started with Frontline.
+This serverless function will allow you to add voicmail to your existing Twilio Frontline application, this assumes that you already have a Frontline instance configured, if not please see the [quickstart](https://www.twilio.com/docs/frontline/nodejs-demo-quickstart) to get started with Frontline.
 
 ## Setup Requirements
 
-Before we begin, we need to collect the environment variables we need to run the functions:
+Before we begin, we need to collect the environment variables we need to run the function:
 
 - ACCOUNT_SID & AUTH_TOKEN: You can find both of these in the console [here](https://console.twilio.com/?frameUrl=/console).
 - CONVERSATION_SID: Your Frontline conversation sid, you can find this [here](https://console.twilio.com/us1/develop/conversations/manage/services?frameUrl=%2Fconsole%2Fconversations%2Fservices)
@@ -13,7 +13,7 @@ Before we begin, we need to collect the environment variables we need to run the
 
 ## Clone Repo
 
-Clone this repo to your local environment
+Clone this repo to your local environment:
 
 ```
 git clone https://github.com/benjohnstone1/frontline-voicemail
@@ -23,7 +23,7 @@ npm install
 
 ## Create .env File
 
-Make a copy of the .env.example file to your local environment and update with your environment variables from above (note, we will come back to the FRONTLINE_DOMAIN after you have deployed the twilio function)
+Make a copy of the .env.example file to your local environment and update with your environment variables from the setup requirements above (note, we will come back to the FRONTLINE_DOMAIN after you have deployed the twilio function)
 
 ```
 cp .env.example .env
@@ -32,14 +32,14 @@ cp .env.example .env
 
 ## Deploy Twilio Functions
 
-We will use the [twilio serverless toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) to deploy the twilio functions to your console.
+We will use the [twilio serverless toolkit](https://www.twilio.com/docs/labs/serverless-toolkit) to deploy the twilio function to your account.
 Run the following command from the root folder in order to deploy to your account:
 
 ```
 twilio:serverless:deploy
 ```
 
-By default, Twilio serverless functions are read-only when deployed using the serverless toolkit, to make the functions editable within the UI run the following command replacing the sid with your function service sid, find your service sid in the console [here](https://console.twilio.com/us1/develop/functions/services?frameUrl=/console/functions/overview/services)
+By default, Twilio serverless functions are read-only when deployed using the serverless toolkit, to make the function editable within the UI run the following command replacing the sid with your function service sid, find your service sid in the console [here](https://console.twilio.com/us1/develop/functions/services?frameUrl=/console/functions/overview/services)
 
 ```
 twilio api:serverless:v1:services:update \
@@ -49,13 +49,13 @@ twilio api:serverless:v1:services:update \
 
 ## Update Frontline Domain
 
-Now that we have deployed the function we can update the FRONTLINE_DOMAIN, you can either choose to update the .env file and redeploy using `twilio:serverless:deploy` or you can update within the UI, below shows where to find the domain within the function editor and where to update assuming you've ran the command to make the function ui-editable.
+Now that we have deployed the function we can update the FRONTLINE_DOMAIN, you can either choose to update the .env file and redeploy using `twilio:serverless:deploy` or you can update within the UI. See blow to see where to find the domain within the function editor and where to update assuming you've ran the command to make the function ui-editable.
 
 ![alt Frontline Domain](https://github.com/benjohnstone1/frontline-voicemail/blob/main/public/Frontline%20Domain.png)
 
 ## Configure Twilio Number
 
-Configure Twilio Phone number
+Update your frontline number by changing the voice configuration to accept your Twilio function.
 
 ![alt Configure Number](https://github.com/benjohnstone1/frontline-voicemail/blob/main/public/Configure%20Number.png)
 
