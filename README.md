@@ -4,7 +4,7 @@ This serverless function will allow you to add voicemail to your existing Twilio
 
 ## Setup Requirements
 
-Before we begin, we need to collect the environment variables we need to run the function:
+Before we begin, we need to collect the environment variables that we need to run the function:
 
 - ACCOUNT_SID & AUTH_TOKEN: You can find both of these in the console [here](https://console.twilio.com/?frameUrl=/console).
 - CONVERSATION_SID: Your Frontline conversation sid, you can find this [here](https://console.twilio.com/us1/develop/conversations/manage/services?frameUrl=%2Fconsole%2Fconversations%2Fservices)
