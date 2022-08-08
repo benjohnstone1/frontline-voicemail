@@ -36,7 +36,7 @@ We will use the [twilio serverless toolkit](https://www.twilio.com/docs/labs/ser
 Run the following command from the root folder in order to deploy to your account:
 
 ```
-twilio:serverless:deploy
+twilio serverless:deploy
 ```
 
 By default, Twilio serverless functions are read-only when deployed using the serverless toolkit, to make the function editable within the UI run the following command replacing the sid with your function service sid, find your service sid in the console [here](https://console.twilio.com/us1/develop/functions/services?frameUrl=/console/functions/overview/services)
