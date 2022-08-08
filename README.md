@@ -9,7 +9,7 @@ Before we begin, we need to collect the environment variables we need to run the
 - ACCOUNT_SID & AUTH_TOKEN: You can find both of these in the console [here](https://console.twilio.com/?frameUrl=/console).
 - CONVERSATION_SID: Your Frontline conversation sid, you can find this [here](https://console.twilio.com/us1/develop/conversations/manage/services?frameUrl=%2Fconsole%2Fconversations%2Fservices)
 - WORKER: The worker the voicemail will be routed to, it should be a frontline agent, this variable is expecting an email address
-- FRONTLINE_DOMAIN: This will be available after you have deployed the application
+- FRONTLINE_DOMAIN: This will be available after you have deployed the application (notes below)
 
 ## Clone Repo
 
@@ -49,7 +49,9 @@ twilio api:serverless:v1:services:update \
 
 ## Update Frontline Domain
 
-Now that we have deployed the function we can update the FRONTLINE_DOMAIN, you can either choose to update the .env file and redeploy using `twilio:serverless:deploy` or you can update in the UI.
+Now that we have deployed the function we can update the FRONTLINE_DOMAIN, you can either choose to update the .env file and redeploy using `twilio:serverless:deploy` or you can update within the UI, below shows where to find the domain within the function editor and where to update assuming you've ran the command to make the function ui-editable.
+
+![alt Frontline Domain](https://github.com/benjohnstone1/frontline-voicemail/blob/main/public/Frontline%20Domain.png)
 
 ## Configure Twilio Number
 
@@ -57,10 +59,10 @@ Configure Twilio Phone number
 
 ![alt Configure Number](https://github.com/benjohnstone1/frontline-voicemail/blob/main/public/Configure%20Number.png)
 
-## Test
+## Test!
 
-You can now test out this functionality by calling your Twilio phone number.
+You can now test out this functionality by calling your Twilio phone number. If the call is answered by the Frontline worker then it will go through as a normal voicecall otherwise the Twilio function will create a Voicemail conversation and post the recording as a new message within the conversation thread.
 
 ## Routing
 
-This function will simply route new voicemails to the worker in your enviroment variable, please feel free to use this as a starting point and update as needed
+This function will simply route new voicemails to the worker you have set in your environment variable, please feel free to use this as a starting point and update as needed
