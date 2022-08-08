@@ -27,9 +27,7 @@ async function createConversation(client) {
     let participant = await client.conversations.v1.conversations(conversation.sid)
         .participants
         .create({
-            identity: 'bjohnstone@twilio.com' //rewrite this to get the agent from the conversation?
-            // if conversation exists between contact calling and worker then assign the worker identity
-            // inject own routing here
+            identity: 'bjohnstone@twilio.com'
         })
     return conversation;
 }
@@ -48,17 +46,9 @@ async function sendMessage(client, convSid, event) {
         .create({
             author: 'Voicemail',
             body: 'You have a new voicemail from: ' + event.From + '\n\n' + event.RecordingUrl,
-            media: {
-                content_type: 'audio/mpeg',
-                filename: 'voicemail.mp3',
-                sid: 'MEf39778bc68fd1104fb6b507c772b4733'
-            }
         })
         .catch(e => console.log(e))
         .then(message => console.log(message.media));
-    // lets add media to this
-    // https://www.twilio.com/docs/conversations/api/media-resource
-
     return message;
 }
 
