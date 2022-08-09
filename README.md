@@ -49,7 +49,9 @@ twilio api:serverless:v1:services:update \
 
 ## Update Frontline Domain
 
-Now that we have deployed the function we can update the FRONTLINE_DOMAIN, you can either choose to update the .env file and redeploy using `twilio:serverless:deploy` or you can update within the UI. See blow to see where to find the domain within the function editor and where to update assuming you've ran the command to make the function ui-editable.
+Now that we have deployed the function we can update the FRONTLINE_DOMAIN, you can either choose to update the .env file and redeploy using `twilio:serverless:deploy` or you can update within the UI. See below to see where to find the domain within the function editor and where to update assuming you've ran the command to make the function ui-editable.
+
+Copy the domain from the bottom left of the function editor and set it as the FRONTLINE_DOMAIN. The format of this parameter should be “https://frontline-voicemail-XXXX-dev.twil.io” and click update and Deploy All
 
 ![alt Frontline Domain](https://github.com/benjohnstone1/frontline-voicemail/blob/main/public/Frontline%20Domain.png)
 
