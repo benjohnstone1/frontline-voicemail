@@ -1,10 +1,8 @@
 const VoiceResponse = require("twilio/lib/twiml/VoiceResponse");
 
 exports.handler = async function (context, event, callback) {
-    const accountSid = context.ACCOUNT_SID;
-    const authToken = context.AUTH_TOKEN;
+    const client = context.getTwilioClient();
     const worker = context.WORKER;
-    const client = require('twilio')(accountSid, authToken);
 
     let convSid = await checkVoiceMailConversation(client);
     if (convSid) {
